@@ -8,6 +8,6 @@ class Solution:
                 charset.remove(s[left])
                 left += 1
             charset.add(s[right])
-        
-            res = max(res, right - left + 1)
+            curr = right - left + 1
+            res = max(res, curr)
         return res
