@@ -1,13 +1,14 @@
 class Solution:
     def firstUniqChar(self, s: str) -> int:
-        dict = {}
-
+        hash_map = {}
         for i in range(len(s)):
-            dict[s[i]] = 1 + dict.get(s[i], 0)
+            if s[i] in hash_map:
+                hash_map[s[i]] += 1
+            else:
+                hash_map[s[i]] = 1
         
-        for idx, val in enumerate(s):
-            if dict[val] == 1:
-                return idx
-        return -1
 
-        
+        for key, val in hash_map.items():
+            if val == 1:
+                return s.index(key)
+        return -1
