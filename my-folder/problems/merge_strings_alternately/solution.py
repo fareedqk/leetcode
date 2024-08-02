@@ -10,3 +10,7 @@ class Solution:
         res.append(word1[i:])
         res.append(word2[j:])
         return "".join(res)
+        
+
+
+        
