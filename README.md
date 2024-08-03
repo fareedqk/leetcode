@@ -11,14 +11,15 @@ The solutions are synced using a GitHub Actions workflow, which runs weekly and 
 ```
 .
 └── my-folder
-    ├── problem_name
-    │   ├── solution.py
-    ├── problem_name
-    │   ├── solution.py
+    ├── problems
+    │   ├── problem_name
+    │       ├── solution.py
+    │   ├── problem_name
+    │       ├── solution.py
     │   ...
 ```
 
-Solutions are organized by problem names within the `my-folder` directory.
+Problem names organize solutions within the `my-folder` directory.
 
 ## File Naming Convention
 
