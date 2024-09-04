@@ -6,4 +6,8 @@ class Solution:
                 stack.pop()
             else:
                 stack.append(s[i])
-        return "".join(stack)
+        # return "".join(stack)
+        a = ""
+        for i in range(len(stack)):
+            a = stack.pop() + a
+        return a
