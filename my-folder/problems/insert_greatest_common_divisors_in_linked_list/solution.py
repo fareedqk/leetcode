@@ -4,23 +4,23 @@
 #         self.val = val
 #         self.next = next
 class Solution:
+    def gcd(num1, num2):
+        div = min(num1, num2)
+        while num1 % div != 0 or num2 % div != 0:
+            div -= 1
+        return div
     def insertGreatestCommonDivisors(self, head: Optional[ListNode]) -> Optional[ListNode]:
-        # node = head
-        # while node.next:
-        #     node.next, node = ListNode(gcd(node.val, node.next.val), node.next), node.next
-        # return head
-        def gcd(a, b):
-            return a if b == 0 else gcd(b, a % b)
-        if not head or not head.next:
+        if head.next == None:
             return head
         
-        temp1, temp2 = head, head.next
-        while temp2:
-            num1, num2 = temp2.val, temp1.val
-            gcd_result = gcd(num1, num2)
-            new_node = ListNode(gcd_result)
-            temp1.next = new_node
-            new_node.next = temp2
-            temp1 = temp2
-            temp2 = temp2.next
+        prev = head
+        temp = head.next
+        div = 0
+
+        while temp != None:
+            div = gcd(prev.val, temp.val)
+            node = ListNode(div, prev.next)
+            prev.next = node
+            prev = temp
+            temp = temp.next
         return head
