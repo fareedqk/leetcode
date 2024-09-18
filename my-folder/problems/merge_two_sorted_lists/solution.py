@@ -22,6 +22,4 @@ class Solution:
         elif list2:
             tail.next = list2
         
-        return dummy.next
-
-        
+        return dummy.next   
