@@ -1,19 +1,19 @@
 class Solution:
     def isValid(self, s: str) -> bool:
         stack = []
-        brackets = {
-            ')': '(',
-            '}': '{',
-            ']': '['
+        closeToOpen = {
+            ")" : "(",
+            "]" : "[",
+            "}" : "{"
         }
+
         for c in s:
-            if c in brackets:
-                if stack and stack[-1] == brackets[c]:
+            if c in closeToOpen:
+                if stack and stack[-1] == closeToOpen[c]:
                     stack.pop()
                 else:
                     return False
             else:
                 stack.append(c)
-        return True if not stack else False
-            
-        
+
+        return True if not stack else False # True --> if stack is empty else False
