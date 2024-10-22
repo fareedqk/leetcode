@@ -1,15 +1,16 @@
 class Solution:
     def wordPattern(self, pattern: str, s: str) -> bool:
-        map = {}
-        # words = s.split()
-        s = s.split(" ")
-        if len(pattern) != len(s): 
+        words = s.split(" ")
+        if len(pattern) != len(words):
             return False
-        if len(set(pattern)) != len(set(s)):
-            return False
-        for i in range(len(s)):
-            if s[i] not in map:
-                map[s[i]] = pattern[i]
-            elif map[s[i]] != pattern[i]:
+        dict_pattern = {}
+        dict_words = {}
+        
+        for p, w in zip(pattern, words):
+            if p in dict_pattern and dict_pattern[p] != w:
                 return False
+            if w in dict_words and dict_words[w] != p:
+                return False
+            dict_pattern[p] = w
+            dict_words[w] = p
         return True
