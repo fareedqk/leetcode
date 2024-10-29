@@ -5,4 +5,3 @@ class Solution:
             if s_index < len(s) and char == s[s_index]:
                 s_index += 1
         return s_index == len(s)
-        
