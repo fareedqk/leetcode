@@ -9,6 +9,3 @@ class Solution:
             elif i not in ['.', "", ".."]:
                 stack.append(i)
         return "/" + "/".join(stack)
-            
-
-        
