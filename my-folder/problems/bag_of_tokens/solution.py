@@ -1,6 +1,6 @@
 class Solution:
     def bagOfTokensScore(self, tokens: List[int], power: int) -> int:
-        tokens.sort()
+        tokens.sort() # O(logn)
 
         l, r = 0, len(tokens)-1
         score, result = 0, 0
@@ -21,3 +21,5 @@ class Solution:
                 break
         return result
 
+# time: O(nlogn)
+# space: O(1)
