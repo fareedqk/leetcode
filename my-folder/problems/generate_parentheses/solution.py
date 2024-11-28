@@ -1,19 +1,25 @@
 class Solution:
     def generateParenthesis(self, n: int) -> List[str]:
+        # only add open paranthesis if open < n
+        # only add closed paranthesis if closed < open
+        # valid IF open == closed == n
+        stack = []
         res = []
 
-        def dfs(openP, closeP, s):
-            if openP == closeP and openP + closeP == n * 2:
-                res.append(s)
+        def backtrack(openN, closedN):
+            if openN == closedN == n:
+                res.append("".join(stack))
                 return
             
-            if openP < n:
-                dfs(openP + 1, closeP, s+ "(")
+            if openN < n:
+                stack.append("(")
+                backtrack(openN + 1, closedN)
+                stack.pop()
 
-            if closeP < openP:
-                dfs(openP, closeP + 1, s + ")")
+            if closedN < openN:
+                stack.append(")")
+                backtrack(openN, closedN + 1)
+                stack.pop()
 
-        dfs(0, 0, "")
-
+        backtrack(0, 0)
         return res
-        
