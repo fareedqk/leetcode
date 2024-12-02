@@ -6,15 +6,9 @@ class Solution:
         for x in range(len(speed)):
             pairs.append([position[x], speed[x]])
         
-        pairs = sorted(pairs)[::-1]
-        
-        for p, s in pairs:
-            # Calculate time to reach the target for the current car
+        for p, s in sorted(pairs)[::-1]: # reverse sorted order
             time = (target - p) / s
-            
             stack.append(time)
-            
-            # Check if there are at least two cars in the stack and the current car
             if len(stack) >= 2 and stack[-1] <= stack[-2]:
                 stack.pop()
         
