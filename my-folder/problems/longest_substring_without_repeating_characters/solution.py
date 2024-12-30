@@ -9,5 +9,5 @@ class Solution:
                 char_set.remove(s[l])
                 l += 1
             char_set.add(s[r])
-            result = max(result, r - l + 1)
+            result = max(result, r - l + 1) # r - l + 1 --> current lenght of sliding window
         return result
