@@ -1,9 +1,7 @@
 class Solution:
     def runningSum(self, nums: List[int]) -> List[int]:
-        arr = []
-        add = 0
-        for i in nums:
-            add = add + i
-            arr.append(add)
-        return arr
+        for i in range(1, len(nums)):
+            nums[i] = nums[i] + nums[i-1]
+
+        return nums
         
